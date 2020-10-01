@@ -26,6 +26,7 @@ const requireAuth = (req, res, next) => {
 
 const checkUser = (req, res, next) => {
     const token = req.cookies.jwt;
+    const token = req.cookies;
 
     if(token) {
         jwt.verify(token, config.secret, async (err, decodedToken) => {
@@ -44,7 +45,7 @@ const checkUser = (req, res, next) => {
                     let userdata = user.email;
 
                     res.locals.user = userdata;
-                    res.cookie('user', userdata, { httpOnly: true, maxAge: maxAge * 1000 });
+                    res.cookie('user', userdata, { httpOnly: true, maxAge: maxAge * 800 });
                     next();
                 }
             }
