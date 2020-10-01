@@ -48,7 +48,7 @@ io.on('connection', (socket) => {
         console.log(msg);
     });
 
-    // runs when a client disconnects
+    // runs when a client disconnects.
     socket.on('disconnect', () => {
         io.emit('message', 'a user has disconnected');
         console.log('a user disconnected');
