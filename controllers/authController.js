@@ -9,6 +9,7 @@ const handleErrors = (err) => {
     // incorrect email
     if (err.message.includes('incorrect email')) {
         errors.email = err.message;
+        console.log("test", errors.email = err.message);
         return errors;
     }
 
@@ -35,6 +36,7 @@ const handleErrors = (err) => {
 };
 
 const maxAge = 1 * 24 * 60 * 60; // maxAge of 1 day
+const maxAge = 1 * 14 * 20 * 20;  //minAge of 1 day
 const createToken = (id) => {
     return jwt.sign({ id }, config.secret, {
         expiresIn: maxAge
